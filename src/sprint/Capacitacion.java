@@ -1,5 +1,15 @@
 package sprint;
 
+/** 
+ * @version 1.0.0  Trabajo Sprint M4
+ * Clase principal con selector de opciones
+ * @author Nicolae Villegas
+ * @author Jesus Torres
+ * @author Cristian Díaz
+ * @author Fabiana Vega
+ 
+ */
+
 public class Capacitacion {
 	
 	// Variables de clase (atributos)
@@ -55,10 +65,18 @@ public class Capacitacion {
 	// Metodos getters y setters
 	
 	// Metodos Identificador
+	
+	/**
+	 * @return
+	 */
 	public int getIdentificador() {
 		return this.identificador;
 	}
 	
+	/**
+	 * @param identificador
+	 * Identificador: obligatorio, número interno de la capacitación manejado por la empresa
+	 */
 	public void setIdentificador(int identificador) {
 		if (identificador==0) {
 			System.out.println("Este dato es obligatorio");
@@ -69,10 +87,18 @@ public class Capacitacion {
 	// Fin Metodos Identificador
 	
 	// Metodos RutCliente
+	
+	/**
+	 * @return
+	 */
 	public int getRutCliente() {
 		return this.rutCliente;
 	}
 	
+	/**
+	 * @param rutCliente
+	 * RUT cliente: obligatorio
+	 */
 	public void setRutCliente(int rutCliente) {
 		if (Validaciones.validaRut(rutCliente)) {
 			this.rutCliente = rutCliente;
@@ -81,9 +107,17 @@ public class Capacitacion {
 	// Fin Metodos RutCliente
 	
 	// Metodo Dia
+	
+	/**
+	 * @return
+	 */
 	public String getDia() {
 		return dia;
 	}
+	/**
+	 * @param dia
+	 * Día: texto, día de la semana. Debe ser un valor permitido entre “lunes” y “Domingo” (en ese formato)
+	 */
 	public void setDia(String dia) {
 		if (Validaciones.validaDia(dia)) {
 			this.dia=dia.toUpperCase();
@@ -92,9 +126,17 @@ public class Capacitacion {
 	// Metodo Dia
 	
 	// Metodo Hora
+	
+	/**
+	 * @return
+	 */
 	public String getHora() {
 		return hora;
 	}
+	/**
+	 * @param hora
+	 * Hora: debe ser una hora válida del día, en formato HH:MM (hora desde 0 a 23, minutos entre 0 y 59)
+	 */
 	public void setHora(String hora) {
 		if (Validaciones.validaHora(hora)) {
 			this.hora = hora;
@@ -103,9 +145,17 @@ public class Capacitacion {
 	// Metodo Hora
 	
 	// Metodo Lugar
+	
+	/**
+	 * @return
+	 */
 	public String getLugar() {
 		return lugar;
 	}
+	/**
+	 * @param lugar
+	 * Lugar: obligatorio, mínimo 10 caracteres, máximo 50
+	 */
 	public void setLugar(String lugar) {
 		if (Validaciones.validaLargoCadena(lugar,10,50)) {
 			this.lugar = lugar;
@@ -114,9 +164,17 @@ public class Capacitacion {
 	// Fin Metodo Lugar
 	
 	// Metodo duracion
+	
+	/**
+	 * @return
+	 */
 	public String getDuracion() {
 		return duracion;
 	}
+	/**
+	 * @param duracion
+	 * Duración: máximo 70 caracteres
+	 */
 	public void setDuracion(String duracion) {
 		if (Validaciones.validaDuracion(duracion)) {
 			this.duracion = duracion;
@@ -125,9 +183,17 @@ public class Capacitacion {
 	// Fin Metodo duracion
 	
 	// Metodo Cantidad de asistentes
+	
+	/**
+	 * @return
+	 */
 	public int getCantidadAsistentes() {
 		return cantidadAsistentes;
 	}
+	/**
+	 * @param cantidadAsistentes
+	 * Cantidad de asistentes: obligatorio, número entero menor que 1000
+	 */
 	public void setCantidadAsistentes(int cantidadAsistentes) {
 		if (Validaciones.validaCantidadAsistentes(cantidadAsistentes)) {
 			this.cantidadAsistentes = cantidadAsistentes;

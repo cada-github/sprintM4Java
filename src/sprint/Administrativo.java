@@ -1,13 +1,29 @@
 package sprint;
 
+/** 
+ * @version 1.0.0  Trabajo Sprint M4
+ * @author Nicolae Villegas
+ * @author Jesus Torres
+ * @author Cristian Díaz
+ * @author Fabiana Vega
+ */
+
+/** Clase Administrativo extiende de clase Usuario
+* Atributos:
+* area
+* aniosExperiencia
+*/
 public class Administrativo extends Usuario {
 
 	private String area;
-	private int aniosExperiencia;
+	private String aniosExperiencia;
 	
 	// Constructores
+	
+	public Administrativo() {}
+	
 	public Administrativo(String nombreUsuario, String fechaNacimiento, int rut,
-			String area, int aniosExperiencia) {
+			String area, String aniosExperiencia) {
 		super(nombreUsuario,fechaNacimiento,rut);
 		
 		this.setAniosExperiencia(aniosExperiencia);
@@ -16,36 +32,50 @@ public class Administrativo extends Usuario {
 		this.area = this.getArea();
 		this.aniosExperiencia = this.getAniosExperiencia();
 	}
-	public Administrativo() {}
-
+	
 	// Métodos getters y setters
 	
-	// Metodo area
+	/**
+	 * @return Retorna cadena area
+	 */
 	public String getArea() {
 		return area;
 	}
+	
+	/**
+	 * @param area Recibe y valida cadena area
+	 * obligatorio, mínimo 5 caracteres, máximo 20
+	 */
 	public void setArea(String area) {
 		if (Validaciones.validaLargoCadena(area, 5, 20)) {
 		this.area = area;
 		}
 	}
-
-	// Metodo años de experiencia
-	public int getAniosExperiencia() {
+	
+	/**
+	 * @return retorna cadena años de experiencia 
+	 */
+	public String getAniosExperiencia() {
 		return aniosExperiencia;
 	}
-	public void setAniosExperiencia(int aniosExperiencia) {
-		if (aniosExperiencia<1 || aniosExperiencia>100) {
-			System.out.println("Años de experiencia debe ser entre 1 y 100");
-		} else { 
+	
+	/**
+	 * @param aniosExperiencia Recibe y valida cadena aniosExperiencia
+	 * máximo 100 caracteres
+	 */
+	public void setAniosExperiencia(String aniosExperiencia) {
+		if (Validaciones.validaLargoCadena(aniosExperiencia, 0, 100)) {
 			this.aniosExperiencia = aniosExperiencia;
 		}
 	}
 	
 	// Métodos sobreescritos
+	
 	@Override
 	public String toString() {
-		return "Administrativo [area=" + area + ", aniosExperiencia=" + aniosExperiencia + "]";
+		return "Administrativo [area=" + area + 
+				", aniosExperiencia=" + aniosExperiencia + 
+				", toString()="	+ super.toString() + "]";
 	}
 
 	@Override

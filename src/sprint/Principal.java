@@ -3,12 +3,13 @@ package sprint;
 import java.util.Scanner;
 
 /** 
- * Trabajo Sprint M4
+ * @version 1.0.0  Trabajo Sprint M4
+ * Clase principal con selector de opciones
  * @author Nicolae Villegas
  * @author Jesus Torres
  * @author Cristian Díaz
  * @author Fabiana Vega
- *
+ 
  */
 
 public class Principal {
@@ -22,7 +23,7 @@ public class Principal {
 	
 	public static void main(String[] args) {
 		int opcion=0;
-		pideUsuario();
+		
 		do {
 				System.out.println("Menu de Opciones");
 				System.out.println("1. Ingreso de Cliente");
@@ -63,7 +64,7 @@ public class Principal {
 						System.out.println("");
 						break;
 					case 7:
-						System.out.println();
+						opcion7();
 						break;
 					case 8:
 						System.out.println("***   Lista capacitacion   ***");
@@ -87,19 +88,19 @@ public class Principal {
 		
 		System.out.println("*** Ingreso de Usuario ***");
 		System.out.println("");
-		// Pide rut
+		
 		while (usuario.getRunUsuario()==0) {
 			System.out.println("Ingrese rut usuario: ");
 			int dato = sc.nextInt();
 			sc.nextLine();
 			usuario.setRunUsuario(dato);
 		}
-		// Pide nombre Usuario
+		
 		while (usuario.getNombreUsuario()==null) {
 			System.out.println("Ingrese nombre Usuario: ");
 			usuario.setNombreUsuario(sc.nextLine());
 		}
-		// Pide nombre Usuario
+		
 		while (usuario.getFechaNacimientoUsuario()==null) {
 			System.out.println("Ingrese fecha Nacimiento (DD/MM/AAAA): ");
 			usuario.setFechaNacimientoUsuario(sc.nextLine());
@@ -111,53 +112,55 @@ public class Principal {
 		int dato;
 		String respuesta="N";
 		
-		System.out.println("*** Ingreso de Cliente ***");
+		System.out.println("***   Ingreso de Cliente   ***");
 		System.out.println("");
-		// Pide rut cliente
+
+		pideUsuario();
+		
 		while (cliente.getRutCliente()==0) {
 			System.out.println("Rut cliente: ");
 			dato = sc.nextInt();
 			sc.nextLine();
 			cliente.setRutCliente(dato);
 		}
-		// Pide nombres
+
 		while (cliente.getNombres()==null) {
 			System.out.println("Nombres: ");
 			cliente.setNombres(sc.nextLine());
 		}
-		// Pide apellidos
+
 		while (cliente.getApellidos()==null) {
 			System.out.println("Apellidos: ");
 			cliente.setApellidos(sc.nextLine());
 		}
-		// Pide telefonos
+
 		while (cliente.getTelefonos()==null) {
 			System.out.println("Telefonos: ");
 			cliente.setTelefonos(sc.nextLine());
 		}
-		// Pide afp
+
 		while (cliente.getAfp()==null) {
 			System.out.println("Nombre AFP: ");
 			cliente.setAfp(sc.nextLine());
 		}
-		// Pide sistema salud
+		
 		while (cliente.getSistemaSalud()==0) {
 			System.out.println("Sistema salud (1=FONASA, 2=ISAPRE: ");
 			dato = sc.nextInt();
 			sc.nextLine();
 			cliente.setSistemaSalud(dato);
 		}
-		// Pide direccion
+
 		while (cliente.getDireccion()==null) {
 			System.out.println("Dirección: ");
 			cliente.setDireccion(sc.nextLine());
 		}
-		// Pide comuna
+
 		while (cliente.getComuna()==null) {
 			System.out.println("Comuna: ");
 			cliente.setComuna(sc.nextLine());
 		}
-		// Pide edad
+
 		while (cliente.getEdad()==0) {
 			System.out.println("Edad: ");
 			dato = sc.nextInt();
@@ -165,7 +168,6 @@ public class Principal {
 			cliente.setEdad((byte)dato);
 		}
 		
-		// Pasa los datos a usuario
 		cliente.setRunUsuario(usuario.getRunUsuario());
 		cliente.setNombreUsuario(usuario.getNombreUsuario());
 		cliente.setFechaNacimientoUsuario(usuario.getFechaNacimientoUsuario());
@@ -176,26 +178,27 @@ public class Principal {
 		if ("S".equals(respuesta.toUpperCase())) {
 			contenedor.almacenarCliente(cliente);
 		}
+		System.out.println("*** Fin Ingreso de Cliente  ***");
+		System.out.println("");
 	}
 	private static void opcion2 () {
 		String respuesta="N";
 		
-		System.out.println("*** Ingreso de profesional ***");
+		System.out.println("***   Ingreso de profesional   ***");
 		System.out.println("");
 		
-		// Pide fecha de ingreso
+		pideUsuario();
+
 		while (profesional.getFechaIngreso()==null) {
 			System.out.println("Fecha de ingreso: ");
 			profesional.setFechaIngreso(sc.nextLine());
 		}
 		
-		// Pide titulo
 		while (profesional.getTitulo()==null) {
 			System.out.println("Titulo: ");
 			profesional.setTitulo(sc.nextLine());
 		}
 		
-		// Pasa los datos a usuario
 		profesional.setRunUsuario(usuario.getRunUsuario());
 		profesional.setNombreUsuario(usuario.getNombreUsuario());
 		profesional.setFechaNacimientoUsuario(usuario.getFechaNacimientoUsuario());
@@ -205,25 +208,26 @@ public class Principal {
 		
 		if ("S".equals(respuesta.toUpperCase())) {
 			contenedor.almacenarProfesional(profesional);
-		}	
+		}
+		
+		System.out.println("*** Fin Ingreso de profesional  ***");
+		System.out.println("");
 	}
 	
 	private static void opcion3 () {
 		int dato;
 		String respuesta="N";
 		
-		System.out.println("*** Ingreso de Administrativo***");
+		System.out.println("***   Ingreso de Administrativo    ***");
 		System.out.println("");
 		
-		// Pide Area
+		pideUsuario();
+		
 		System.out.println("Area: ");
 		administrativo.setArea(sc.nextLine());
 
-		// Pide experiencia
-		System.out.println("Años de experiencia: ");
-		dato = sc.nextInt();
-		sc.nextLine();
-		administrativo.setAniosExperiencia(dato);
+		System.out.println("Experiencia previa: ");
+		administrativo.setAniosExperiencia(sc.nextLine());
 		
 		System.out.println("¿Desea agregar Administrativo? (S/N): ");
 		respuesta=sc.nextLine();
@@ -231,44 +235,40 @@ public class Principal {
 		if ("S".equals(respuesta.toUpperCase())) {
 			contenedor.almacenarAdministrativo(administrativo);
 		}			
+
+		System.out.println("*** Fin Ingreso de Administrativo  ***");
+		System.out.println("");
 	}
 	
 	private static void opcion4 () {
 		int dato;
 		String respuesta="N";
 		
-		System.out.println("*** Ingreso de Capacitacion***");
+		System.out.println("***  Ingreso de Capacitacion  ***");
 		System.out.println("");
 		
-		// identificador
 		System.out.println("Número identificador: ");
 		dato = sc.nextInt();
 		sc.nextLine();
 		capacitacion.setIdentificador(dato);
 		
-		//pide rut cliente
 		System.out.println("Rut de cliente: ");
 		dato = sc.nextInt();
 		sc.nextLine();
 		capacitacion.setRutCliente(dato);
 		
-		// Pide dia
 		System.out.println("Dia de la capacitación: ");
 		capacitacion.setDia(sc.nextLine());
 		
-		// Pide hora
 		System.out.println("Hora de la capacitacion: ");
 		capacitacion.setHora(sc.nextLine());
 		
-		// Pide lugar
 		System.out.println("Lugar de capacitacion");
 		capacitacion.setLugar(sc.nextLine());
 		
-		// Pide duracion
 		System.out.println("Duracion de la capacitacion");
 		capacitacion.setDuracion(sc.nextLine());
 		
-		// Pide cantidad de asistentes
 		System.out.println("Ingrese la cantidad de asistentes");
 		dato = sc.nextInt();
 		sc.nextLine();
@@ -280,16 +280,37 @@ public class Principal {
 		if ("S".equals(respuesta.toUpperCase())) {
 			contenedor.almacenarCapacitacion(capacitacion);
 		}	
+		
+		System.out.println("*** Fin Ingreso de Capacitacion***");
+		System.out.println("");
 	}
 	
 	public static void opcion5() {
 		int dato=0;
 		
-		//pide run usuario
-		System.out.println("Digite Run de Usuario a eliminar: ");
+		System.out.println("*** Digite Run de Usuario a eliminar ***");
+		System.out.println("");
+		
 		dato = sc.nextInt();
 		sc.nextLine();
+		
 		contenedor.eliminarUsuario(dato);
-		System.out.println("Usuario eliminado");
+
+		System.out.println("***           Usuario eliminado      ***");
+		System.out.println("");
+	}
+
+	public static void opcion7() {
+		String tipo;
+		
+		System.out.println("***   Listar por tipo de Usuario   ***");
+		System.out.println("");
+		
+		System.out.println("Digite un tipo de usuario a consultar: ");
+		tipo = sc.nextLine();
+		contenedor.listarUsuarios(tipo);
+
+		System.out.println("*** Fin listar por tipo de Usuario ***");
+		System.out.println("");
 	}
 }

@@ -1,10 +1,26 @@
 package sprint;
 
-/*
- * Por acuerdo con el profesor se elimina el atributo rut
- * porque este ya existe en la clase padre Usuario 
+/** 
+ * @version 1.0.0  Trabajo Sprint M4
+ * @author Nicolae Villegas
+ * @author Jesus Torres
+ * @author Cristian Díaz
+ * @author Fabiana Vega
  */
 
+/**
+ * Clase Cliente extiende de clase Usuario
+ * Atributos:
+ * rutCliente
+ * nombres
+ * apellidos
+ * telefonos
+ * afp
+ * sistemaSalud
+ * direccion
+ * comuna
+ * edad
+ */
 public class Cliente extends Usuario{
 
 	private int rutCliente;
@@ -18,6 +34,8 @@ public class Cliente extends Usuario{
 	private byte edad;
 	
 	// Constructores
+	
+	public Cliente() {}
 	
 	public Cliente(int rutCliente, String nombreUsuario, String fechaNacimiento,
 			String nombres, String apellidos,String telefonos, String afp,
@@ -35,10 +53,13 @@ public class Cliente extends Usuario{
 		this.comuna = comuna;
 		this.edad = edad;
 	}
-
-	public Cliente() {}
 	
 	//Metodos de la clase
+	
+	/**
+	 * @param sistemaSalud Recibe entero sistema de salud 1=FONASA, 2=ISAPRE
+	 * @return Retorna String nombre sistema salud
+	 */
 	public String obtenerSistemaSalud(int sistemaSalud) {
 		String sisSalud="";
 		switch (sistemaSalud) {
@@ -54,6 +75,11 @@ public class Cliente extends Usuario{
 		return "Sus sistema de salud es: "+sisSalud;
 	}
 	
+	/**
+	 * @param nombres Recibe String nombres y String apellidos
+	 * @param apellidos Retorna String nombre completo
+	 * @return
+	 */
 	public String obtenerNombre(String nombres, String apellidos) {
 		String nombreCompleto = nombres + " "+ apellidos; 
 		return nombreCompleto; 
@@ -61,42 +87,69 @@ public class Cliente extends Usuario{
 	
 	// Metodos getters y setters
 	
-	// Metodo rut del cliente
+
+	/**
+	 * @return Retorna entero rut del cliente
+	 */
 	public int getRutCliente() {
 		return rutCliente;
 	}
+	
+	/**
+	 * @param rutCliente Recibe y valida entero rut del cliente
+	 * corresponde a un número menor a 99.999.999
+	 */
 	public void setRutCliente(int rutCliente) {
 		if (Validaciones.validaRut(rutCliente)){
 			this.rutCliente=rutCliente;
 		}
 	}
 	
-	// Metodo nombres
+	/**
+	 * @return Retorna String nombres
+	 */
 	public String getNombres() {
 		return nombres;
 	}
+	
+	/**
+	 * @param Recibe y valida string nombres
+	 * obligatorio, mínimo 5 caracteres, máximo 30
+	 */
 	public void setNombres(String nombres) {
 		if (Validaciones.validaLargoCadena(nombres, 5, 30)) {
 			this.nombres = nombres;
 		}
 	}
 	
-	// Metodo apellidos
+	/**
+	 * @return Retorna cadena apellidos
+	 */
 	public String getApellidos() {
 		return apellidos;
 	}
+	
+	/**
+	 * @param apellidos Recibe y valida cadena apellidos
+	 * obligatorio, mínimo 5 caracteres, máximo 30
+	 */
 	public void setApellidos(String apellidos) {
 		if (Validaciones.validaLargoCadena(apellidos, 5, 30)) {
 			this.apellidos = apellidos;
 		}
 	}
 	
-	// Metodo telefono
+	/**
+	 * @return Retorna cadena telefonos
+	 */
 	public String getTelefonos() {
 		return telefonos;
 	}
 
-	// Metodo telefono
+	/**
+	 * @param telefonos Recibe y valida cadena telefonos
+	 * obligatorio
+	 */
 	public void setTelefonos(String telefonos) {
 		if (telefonos.length()!=0) {
 			this.telefonos = telefonos;
@@ -105,20 +158,36 @@ public class Cliente extends Usuario{
 		}
 	}
 
-	// Metodo AFP
+	/**
+	 * @return Retorna cadena nombre AFP
+	 */
 	public String getAfp() {
 		return afp;
 	}
+	
+	/**
+	 * @param afp Recibe y valida cadena AFP
+	 * mínimo 4 caracteres, máximo 30
+	 */
 	public void setAfp(String afp) {
 		if (Validaciones.validaLargoCadena(afp, 4, 30)) {
 			this.afp = afp;
 		}
 	}
 
-	// Metodo sistema de salud
+	/**
+	 * @return Retorna entero sistema de salud
+	 * 1=FONASA
+	 * 2=ISAPRE
+	 */
 	public int getSistemaSalud() {
 		return sistemaSalud;
 	}
+	
+	/**
+	 * @param sistemaSalud Recibe y valida entero sistema de salud
+	 * 1=FONASA y 2=ISAPRE
+	 */
 	public void setSistemaSalud(int sistemaSalud) {
 		if (sistemaSalud==1 || sistemaSalud==2) {
 			this.sistemaSalud = sistemaSalud;
@@ -127,30 +196,51 @@ public class Cliente extends Usuario{
 		}
 	}
 	
-	// Metodo direccion
+	/**
+	 * @return Retorna string con direccion
+	 */
 	public String getDireccion() {
 		return direccion;
 	}
+	
+	/**
+	 * @param direccion Recibe y valida string direccion
+	 * máximo 70 caracteres
+	 */
 	public void setDireccion(String direccion) {
 		if (Validaciones.validaLargoCadena(direccion, 0, 70)) {
 			this.direccion = direccion;
 		}
 	}
 
-	// Metodo comuna
+	/**
+	 * @return Retorna string comuna
+	 */
 	public String getComuna() {
 		return comuna;
 	}
+	
+	/**
+	 * @param comuna Recibe y valida string comuna
+	 * máximo 50 caracteres
+	 */
 	public void setComuna(String comuna) {
 		if (Validaciones.validaLargoCadena(comuna, 0, 50)) {
 			this.comuna = comuna;
 		}
 	}
 
-	// Metodo edad
+	/**
+	 * @return Retorna byte edad
+	 */
 	public byte getEdad() {
 		return edad;
 	}
+	
+	/**
+	 * @param edad Recibe y valida byte edad
+	 * obligatorio, número mayor o igual a cero, y menor a 150
+	 */
 	public void setEdad(byte edad) {
 		if (edad<0 || edad>150) {
 			System.out.println("Error en edad, debe ser entre 0 uy 150");
@@ -161,17 +251,19 @@ public class Cliente extends Usuario{
 
 	
 	// Métodos sobreescritos
+	
 	@Override
 	public String toString() {
-		return "Clientes [rutCliente=" + rutCliente +
-				", Nombres=" + nombres + 
-				", apellidos=" + apellidos + 
+		return "Cliente [rutCliente=" + rutCliente + 
+				", nombres=" + nombres + 
+				", apellidos=" + apellidos	+ 
 				", telefonos=" + telefonos + 
 				", afp=" + afp + 
 				", sistemaSalud=" + sistemaSalud + 
-				", direccion=" + direccion + 
+				", direccion="	+ direccion + 
 				", comuna=" + comuna + 
-				", edad=" + edad + "]";
+				", edad=" + edad + 
+				", toString()=" + super.toString() + "]";
 	}
 	
 	@Override
