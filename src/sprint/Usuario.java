@@ -38,8 +38,8 @@ public class Usuario implements IAsesoria {
 	}
 
 	/**
-	 * @param Recibe un string con la fechaNacimientoUsuario
-	 * @return Retorna mensaje que indica la edad del usuario
+	 * @param fechaNacimientoUsuario Recibe un string con la fechaNacimientoUsuario
+	 * @return edad Retorna mensaje que indica la edad del usuario
 	 */
 	public String mostrarEdad(String fechaNacimientoUsuario) {
 		Calendar hoy = Calendar.getInstance();
@@ -112,10 +112,6 @@ public class Usuario implements IAsesoria {
 				", runUsuario=" + runUsuario + "]";
 	}
 	
-
-	/**
-	 * @return Retorna mensaje con Nombre del usuario, Fecha de Nacimiento y Run
-	 */
 	@Override
 	public void analizarUsuario() {
 		System.out.println("El nombre del usuario es: "+this.nombreUsuario);
@@ -124,9 +120,6 @@ public class Usuario implements IAsesoria {
 		System.out.println("**********************************************");
 	}
 
-	/**
-	 * @return Retorna run del usuario
-	 */
 	@Override
 	public int obtieneRunUsuario() {
 		return this.getRunUsuario();

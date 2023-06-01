@@ -2,14 +2,23 @@ package sprint;
 
 /** 
  * @version 1.0.0  Trabajo Sprint M4
- * Clase principal con selector de opciones
  * @author Nicolae Villegas
  * @author Jesus Torres
  * @author Cristian Díaz
  * @author Fabiana Vega
- 
  */
 
+/**
+ * Clase Capacitacion
+ * Atributos:
+ * identificador
+ * rutCliente
+ * dia
+ * hora
+ * lugar
+ * duracion
+ * cantidadAsistentes
+ */
 public class Capacitacion {
 	
 	// Variables de clase (atributos)
@@ -22,6 +31,9 @@ public class Capacitacion {
 	private int cantidadAsistentes;
 	
 	// Metodos Constructores
+	
+	public Capacitacion() {	}
+	
 	public Capacitacion(int identificador,
 			int rutCliente,
 			String dia,
@@ -46,9 +58,17 @@ public class Capacitacion {
 		this.duracion = this.getDuracion();
 		this.cantidadAsistentes = this.getCantidadAsistentes();
 	}
-	public Capacitacion() {	}
 
 	//Metodos de la clase
+	
+	
+	/**
+	 * @param lugar Recibe cadena lugar
+	 * @param hora Recibe cadena hora
+	 * @param dia Recibe cadena dia
+	 * @param duracion Recibe entero duracion
+	 * @return Retorna mensaje con detalle de la capacitacion
+	 */
 	public String mostrarDetalle(String lugar,
 			String hora,
 			String dia,
@@ -64,18 +84,16 @@ public class Capacitacion {
 	
 	// Metodos getters y setters
 	
-	// Metodos Identificador
-	
 	/**
-	 * @return
+	 * @return Retorna entero identificador
 	 */
 	public int getIdentificador() {
 		return this.identificador;
 	}
 	
 	/**
-	 * @param identificador
-	 * Identificador: obligatorio, número interno de la capacitación manejado por la empresa
+	 * @param identificador Recibe y valida entero identificador
+	 * obligatorio, número interno de la capacitación manejado por la empresa
 	 */
 	public void setIdentificador(int identificador) {
 		if (identificador==0) {
@@ -84,125 +102,111 @@ public class Capacitacion {
 			this.identificador = identificador;
 		}
 	}
-	// Fin Metodos Identificador
-	
-	// Metodos RutCliente
 	
 	/**
-	 * @return
+	 * @return Retorna entero rut del cliente
 	 */
 	public int getRutCliente() {
 		return this.rutCliente;
 	}
 	
 	/**
-	 * @param rutCliente
-	 * RUT cliente: obligatorio
+	 * @param rutCliente Recibe y valida entero rutCliente
+	 * obligatorio
 	 */
 	public void setRutCliente(int rutCliente) {
 		if (Validaciones.validaRut(rutCliente)) {
 			this.rutCliente = rutCliente;
 		}
 	}
-	// Fin Metodos RutCliente
-	
-	// Metodo Dia
 	
 	/**
-	 * @return
+	 * @return Retorna cadena dia
 	 */
 	public String getDia() {
 		return dia;
 	}
+	
 	/**
-	 * @param dia
-	 * Día: texto, día de la semana. Debe ser un valor permitido entre “lunes” y “Domingo” (en ese formato)
+	 * @param dia Recibe y valida dia
+	 * texto, día de la semana. 
+	 * Debe ser un valor permitido entre lunes y Domingo (en ese formato)
 	 */
 	public void setDia(String dia) {
 		if (Validaciones.validaDia(dia)) {
 			this.dia=dia.toUpperCase();
 		}
 	}
-	// Metodo Dia
-	
-	// Metodo Hora
 	
 	/**
-	 * @return
+	 * @return Retorna cadena hora
 	 */
 	public String getHora() {
 		return hora;
 	}
+	
 	/**
-	 * @param hora
-	 * Hora: debe ser una hora válida del día, en formato HH:MM (hora desde 0 a 23, minutos entre 0 y 59)
+	 * @param hora Recibe y valida cadena hora
+	 * debe ser una hora válida del día, 
+	 * en formato HH:MM (hora desde 0 a 23, minutos entre 0 y 59)
 	 */
 	public void setHora(String hora) {
 		if (Validaciones.validaHora(hora)) {
 			this.hora = hora;
 		}
 	}
-	// Metodo Hora
-	
-	// Metodo Lugar
 	
 	/**
-	 * @return
+	 * @return Retorna cadena lugar
 	 */
 	public String getLugar() {
 		return lugar;
 	}
+	
 	/**
-	 * @param lugar
-	 * Lugar: obligatorio, mínimo 10 caracteres, máximo 50
+	 * @param lugar Recibe y valida cadena lugar
+	 * obligatorio, mínimo 10 caracteres, máximo 50
 	 */
 	public void setLugar(String lugar) {
 		if (Validaciones.validaLargoCadena(lugar,10,50)) {
 			this.lugar = lugar;
 		}
 	}
-	// Fin Metodo Lugar
-	
-	// Metodo duracion
 	
 	/**
-	 * @return
+	 * @return Retorna cadena duracion
 	 */
 	public String getDuracion() {
 		return duracion;
 	}
+	
 	/**
-	 * @param duracion
-	 * Duración: máximo 70 caracteres
+	 * @param duracion Recibe y valida cadena duracion
+	 * máximo 70 caracteres
 	 */
 	public void setDuracion(String duracion) {
 		if (Validaciones.validaDuracion(duracion)) {
 			this.duracion = duracion;
 		}
 	}
-	// Fin Metodo duracion
-	
-	// Metodo Cantidad de asistentes
 	
 	/**
-	 * @return
+	 * @return Retorna entero cantidad asistentes
 	 */
 	public int getCantidadAsistentes() {
 		return cantidadAsistentes;
 	}
+	
 	/**
-	 * @param cantidadAsistentes
-	 * Cantidad de asistentes: obligatorio, número entero menor que 1000
+	 * @param cantidadAsistentes Recibe y valida entero cantidad de asistentes
+	 * obligatorio, número entero menor que 1000
 	 */
 	public void setCantidadAsistentes(int cantidadAsistentes) {
 		if (Validaciones.validaCantidadAsistentes(cantidadAsistentes)) {
 			this.cantidadAsistentes = cantidadAsistentes;
 		}
 	}
-	// Fin Metodo Cantidad de asistentes
-	
-	
-	// Metodos sobreescritos
+
 	@Override
 	public String toString() {
 		return "Capacitacion [identificador=" + identificador + ", rutCliente=" + rutCliente + ", dia=" + dia

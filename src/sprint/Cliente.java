@@ -113,7 +113,7 @@ public class Cliente extends Usuario{
 	}
 	
 	/**
-	 * @param Recibe y valida string nombres
+	 * @param nombres Recibe y valida string nombres
 	 * obligatorio, mínimo 5 caracteres, máximo 30
 	 */
 	public void setNombres(String nombres) {

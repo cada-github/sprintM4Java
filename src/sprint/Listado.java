@@ -1,5 +1,14 @@
 package sprint;
 
+/** 
+ * @version 1.0.0  Trabajo Sprint M4
+ * Clase principal con selector de opciones
+ * @author Nicolae Villegas
+ * @author Jesus Torres
+ * @author Cristian Díaz
+ * @author Fabiana Vega
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 
